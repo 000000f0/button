@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function ApiCallComponent() {
   const [clientMessage, setClientMessage] = useState('');
-  const [response, setResponse] = useState(null);
+  const [response, setResponse] = useState('');
 
   const handleInputChange = (event) => {
     setClientMessage(event.target.value);
@@ -13,12 +13,13 @@ function ApiCallComponent() {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
-        'https://i2eqjixn7llpkm6laquc47zxhu0yzfyw.lambda-url.eu-west-1.on.aws/ ',
+      const lambdaEndpoint = 'https://xsvv3p3cbkqtmljxahna3ony540oyoom.lambda-url.eu-west-1.on.aws/'; // Replace with your Lambda endpoint URL
+      const lambdaResponse = await axios.post(
+        lambdaEndpoint,
         { clientmessage: clientMessage }
       );
-      
-      setResponse(response.data);
+
+      setResponse(lambdaResponse.data);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -37,7 +38,7 @@ function ApiCallComponent() {
       {response && (
         <div>
           <h2>Response:</h2>
-          <pre>{JSON.stringify(response, null, 2)}</pre>
+          <pre>{response}</pre>
         </div>
       )}
     </div>
