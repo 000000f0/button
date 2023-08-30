@@ -3,10 +3,11 @@ import { ethers } from 'ethers';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import ApiCallComponent from './ApiCallComponent';
+import ChatModal from './ChatModal';
 
 export default function Home() {
   // Contract Address & ABI
-  const contractAddress = '0x6968E861b047b4524b1d16Cb30e2F9707B03020E';
+  const contractAddress = '0xD0Ee1C301ECe6c950E16423D37F1f97B4475E6af';
   const contractABI = abi.abi;
 
   // Component state
@@ -185,10 +186,13 @@ export default function Home() {
   };
 
 
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
 
 
 
-
+  const toggleChatModal = () => {
+    setIsChatModalOpen(!isChatModalOpen);
+  };
 
 
 
@@ -489,7 +493,16 @@ export default function Home() {
 
       
       </main>
-  
+      <div>
+        <h1>chat</h1>
+        <button onClick={toggleChatModal}>Open Chat</button>
+        {isChatModalOpen && (
+          <ChatModal
+            isDarkMode={isDarkMode}
+            onClose={toggleChatModal}
+          />
+        )}
+      </div>
       <footer style={{marginBottom: '30px', width: '100%', borderTop: `1px solid ${!isDarkMode ? 'black' : 'white'}`, backgroundColor: isDarkMode ? 'black' : 'white', color: isDarkMode ? 'white' : 'black', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <img
