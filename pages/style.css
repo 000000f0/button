@@ -9,8 +9,12 @@
 
 /* Dark Mode Styles */
 .darkMode {
-  background-color: black;
+  background-color: #704214;
   color: white;
+}
+
+div{
+  color: #704214;
 }
 
 /* Navigation Header */
@@ -19,7 +23,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #333;
+  background-color: #704214;
   color: white;
   display: flex;
   align-items: center;
@@ -175,3 +179,35 @@ input:checked + .slider:before {
   padding: 5px 10px;
   cursor: pointer;
 }
+
+
+
+
+
+/* 
+/* Contact Page Styles */
+/* .main2 {
+}
+
+.contact_form {
+  background-color: ${isDarkMode ? '#000' : '#fff'};
+  border: ${isDarkMode ? '1px solid white' : '1px solid black'};
+}
+
+.contact_form td {
+  padding: 10px;
+}
+
+.contact_form input[type="text"],
+.contact_form input[type="email"],
+.contact_form textarea {
+  background-color: ${isDarkMode ? '#000' : '#fff'};
+  color: ${isDarkMode ? '#fff' : '#000'};
+  border-bottom: ${isDarkMode ? '1px solid white' : '1px solid black'};
+}
+
+.contact_form button {
+  background-color: ${isDarkMode ? '#fff' : '#000'};
+  color: ${isDarkMode ? '#000' : '#fff'};
+/* } 
+*/

@@ -10,9 +10,9 @@ function ApiCallComponent() {
   };
 
   const handleSubmit = async () => {
-    console.log("Submitting "+clientMessage);
+    console.log("Submitting " + clientMessage);
     try {
-      const lambdaEndpoint = 'https://xsvv3p3cbkqtmljxahna3ony540oyoom.lambda-url.eu-west-1.on.aws/'; // Replace with your Lambda endpoint URL
+      const lambdaEndpoint = 'http://54.77.216.40:5000'; // Replace with your Lambda endpoint URL
       const lambdaResponse = await axios.post(
         lambdaEndpoint,
         { clientmessage: clientMessage }
@@ -26,14 +26,12 @@ function ApiCallComponent() {
 
   return (
     <div>
-    
-        <label>
-          Client Message:
-          <input type="text" value={clientMessage} onChange={handleInputChange} />
-        </label>
-        <button onClick={handleSubmit}>Submit</button>
-      
-      
+      <label>
+        Client Message:
+        <input type="text" value={clientMessage} onChange={handleInputChange} />
+      </label>
+      <button onClick={handleSubmit}>Submit</button>
+
       {response && (
         <div>
           <h2>Response:</h2>
