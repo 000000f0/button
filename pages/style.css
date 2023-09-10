@@ -70,7 +70,7 @@ div{
   left: 0;
   right: -4px;
   bottom: 0;
-  background-color: #000;
+  background-color: #704214;
   transition: 0.4s;
   border-radius: 20px;
 }
@@ -173,11 +173,11 @@ input:checked + .slider:before {
 }
 
 .chat-input button {
-  background-color: #007bff;
+  background-color: #704214;
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
+  border-radius: 0px;
+  padding: 10px 20px;
   cursor: pointer;
 }
 
@@ -191,8 +191,8 @@ input:checked + .slider:before {
 }
 
 .contact_form {
-  background-color: ${isDarkMode ? '#000' : '#fff'};
-  border: ${isDarkMode ? '1px solid white' : '1px solid black'};
+  background-color: ${isDarkMode ? '#704214' : '#fff'};
+  border: ${isDarkMode ? '1px solid white' : '1px solid #704214'};
 }
 
 .contact_form td {
@@ -202,13 +202,13 @@ input:checked + .slider:before {
 .contact_form input[type="text"],
 .contact_form input[type="email"],
 .contact_form textarea {
-  background-color: ${isDarkMode ? '#000' : '#fff'};
-  color: ${isDarkMode ? '#fff' : '#000'};
-  border-bottom: ${isDarkMode ? '1px solid white' : '1px solid black'};
+  background-color: ${isDarkMode ? '#704214' : '#fff'};
+  color: ${isDarkMode ? '#fff' : '#704214'};
+  border-bottom: ${isDarkMode ? '1px solid white' : '1px solid #704214'};
 }
 
 .contact_form button {
-  background-color: ${isDarkMode ? '#fff' : '#000'};
-  color: ${isDarkMode ? '#000' : '#fff'};
+  background-color: ${isDarkMode ? '#fff' : '#704214'};
+  color: ${isDarkMode ? '#704214' : '#fff'};
 /* } 
 */

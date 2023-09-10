@@ -24,19 +24,27 @@ export default function Home() {
     // Add your image URLs here
   ];
 
-  const startStrobe = () => {
-    setIsStrobing(true);
-    let counter = 0;
-    const interval = setInterval(() => {
-      setImageIndex(counter);
-      counter = (counter + 1) % imageSources.length;
-    }, 200);
 
-    setTimeout(() => {
-      clearInterval(interval);
-      setIsStrobing(false);
-    }, 2000);
-  };
+
+
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
+
+  
+    // Function to open the chat modal
+    const openChatModal = () => {
+      setIsChatModalOpen(true);
+    };
+  
+    // Function to close the chat modal
+    const closeChatModal = () => {
+      setIsChatModalOpen(false);
+    };
+  
+
+
+
+
+
 
   // Define your handlePageChange functions here
 
@@ -137,20 +145,6 @@ export default function Home() {
     // Add more events
   ];
 
-  const [rouletteResult, setRouletteResult] = useState(null);
-
-  const spinRoulette = () => {
-    // Generate a random result (0 or 1)
-    const randomResult = Math.floor(Math.random() * 2);
-    // Set the roulette result
-    setRouletteResult(randomResult === 0 ? '#704214' : 'white');
-  };
-
-  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
-
-  const toggleChatModal = () => {
-    setIsChatModalOpen(!isChatModalOpen);
-  };
 
 
 
@@ -182,12 +176,23 @@ const handleSubmit = () => {
 
 
 
+  const toggleChatModal = () => {
+    setIsChatModalOpen(!isChatModalOpen);
+  };
 
 
 
 
+  const buttonStyle = {
+    backgroundColor: isDarkMode ?  '#985b00':'#fff',     // Background color
+    color: 'white',             // Text color
+padding:'15px',
+    border: 'none',             // No border
+    borderRadius: '50px',        // Rounded corners
+    cursor: 'pointer',          // Cursor style on hover
+    border: isDarkMode ? '3px solid white' : '3px solid #704214',
 
-
+  };
 
 
 
@@ -290,8 +295,7 @@ marginLeft:'-10px',
         <main style={{
           backgroundColor: '#ffffff',
           opacity: 1,
-  paddingTop: '195px',
-  paddingBottom: '150px',
+  height:'100vh',
 
 
 
@@ -308,7 +312,7 @@ backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
             <center>
               <div
                 style={{
-
+paddingTop:'20vh'
                 }}
               >
                 
@@ -393,7 +397,21 @@ backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
                   </tbody>
                 </table>
               </div>
+              
+
+
+
             </center>
+
+
+            
+
+
+
+
+
+
+
           </div>
         </main>
   
@@ -427,6 +445,50 @@ backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
             />
           </div>
         </footer>
+        <div>
+      {/* Container div for positioning */}
+      <div 
+       style={{
+        position: 'fixed',
+        bottom: '60px',
+        left: '60px',
+      }}>
+        {/* Button to open the chat modal */}
+        <div>
+      {/* Button to open the chat modal with inline CSS */}
+      <button
+        onClick={openChatModal}
+        style={buttonStyle} // Apply the buttonStyle
+      >
+        
+        
+        <img
+              style={{ width: '40px', padding: '0px' }}
+              src={isDarkMode ? 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/modald.png' : 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/modall.png'}
+              alt="Chat"
+            />
+
+
+      </button>
+
+      {/* Conditionally render the ChatModal */}
+      {isChatModalOpen && (
+        <ChatModal
+          isDarkMode // You can set the mode as needed
+          onClose={closeChatModal}
+        />
+      )}
+    </div>
+      </div>
+
+      {/* Conditionally render the ChatModal */}
+      {isChatModalOpen && (
+        <ChatModal
+          isDarkMode={false} // You can set the mode as needed
+          onClose={closeChatModal}
+        />
+      )}
+    </div>
       </div>
     );
   }
@@ -574,70 +636,78 @@ marginLeft:'-10px',
       </div>
     </div>
 
-    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+    <table style={{  border: !isDarkMode ? '1px solid #704214' : '1px solid white', borderCollapse: '', width: '100%', borderSpacing: '5px',color: isDarkMode ? '#fff' : '#704214', }}>
   <tbody>
     <tr>
-      <td style={{ border: '1px solid #704214', padding: '20px',  color: !isDarkMode ? '#704214' : '#fff' }}>
-        <h2>ARK4: The Energy Company You Own</h2>
-        <p>
-          Welcome to ARK4, the innovative energy company where you, the consumer, are also the owner. At ARK4, we believe in revolutionizing the way you interact with and benefit from the energy sector. Gone are the days of being a passive customer; with ARK4, you become an integral part of the solution to a cleaner, more sustainable future.
-        </p>
+      <td style={{  border: !isDarkMode ? '1px solid #704214' : '1px solid white', padding: '10px', textAlign: 'center' }}>
+        24 Jun<br />
+        Taking Charge of Our Economic Future: Exploring the Power of Ark4.
       </td>
-    </tr>
-    <tr>
-      <td style={{ border: isDarkMode ?  '1px solid #704214':'1px solid #fff', padding: '20px', color: !isDarkMode ? '#704214' : '#fff' }}>
-        <h2>Our Vision</h2>
-        <p>
-          We envision a world where energy production is not just the domain of a few large corporations but a collective effort that empowers individuals and communities. ARK4 was born from the idea that everyone should have a stake in the energy they consume. When you join ARK4, you're not just signing up for electricity or fuel; you're investing in a better tomorrow.
-        </p>
+      <td style={{  border: !isDarkMode ? '1px solid #704214' : '1px solid white',  padding: '10px', textAlign: 'center' }}>
+        1 Jun<br />
+        Understanding NFTs and Blockchain: Beyond the Hype
       </td>
-    </tr>
-    <tr>
-      <td style={{ border: '1px solid #704214', padding: '20px', color: '#704214' }}>
-        <h2>Clean and Sustainable Energy</h2>
-        <p>
-          As stewards of the environment, we are committed to harnessing the power of clean and sustainable energy sources. ARK4 is at the forefront of the renewable energy revolution. We're not only reducing our carbon footprint but also helping you reduce yours. Solar, wind, hydro, and other renewable sources are the backbone of our energy generation.
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style={{ border: '1px solid #704214', padding: '20px', color: '#704214' }}>
-        <h2>The ARK4 Difference</h2>
-        <p>
-          What sets ARK4 apart from traditional energy companies? It's our cooperative approach. When you become a member, you gain a say in how the company operates. We hold regular meetings where members can voice their opinions and vote on important decisions. This isn't just a utility; it's a community.
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style={{ border: '1px solid #704214', padding: '20px', color: '#704214' }}>
-        <h2>Benefits of Joining ARK4</h2>
-        <ul>
-          <li><strong>Ownership:</strong> As an owner, you're entitled to a share of ARK4's profits. When we do well, you do too.</li>
-          <li><strong>Sustainability:</strong> Enjoy clean, green energy with a clear conscience, knowing you're contributing to a sustainable future.</li>
-          <li><strong>Affordability:</strong> Our cooperative model often translates to cost savings for our members.</li>
-          <li><strong>Transparency:</strong> We believe in open books. You'll have access to financial statements, performance reports, and more.</li>
-          <li><strong>Community:</strong> Join a like-minded community of individuals passionate about clean energy and environmental stewardship.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style={{ border: '1px solid #704214', padding: '20px', color: '#704214' }}>
-        <h2>Our Commitment to You</h2>
-        <p>
-          At ARK4, our commitment extends beyond providing energy. We're here to educate, advocate, and drive positive change in the energy sector. We believe in transparency, accountability, and empowering our members to make informed choices about their energy consumption.
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style={{ border: '1px solid #704214', padding: '20px', color: '#704214' }}>
-        <h2>Join Us Today</h2>
-        <p>
-          Ready to take control of your energy future? Join ARK4, the energy company you own. Together, we can build a cleaner, more sustainable world while benefiting from the rewards of ownership. Get started today and become a part of the ARK4 community. Together, we're powering change.
-        </p>
+      <td style={{  border: !isDarkMode ? '1px solid #704214' : '1px solid white',  padding: '10px', textAlign: 'center' }}>
+        13 May<br />
+        Ignite the Crypto Wildfire: Redefining Ownership, Leaving a Legacy
       </td>
     </tr>
   </tbody>
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style={{ backgroundColor: !isDarkMode ? '#fff' : '#704214' }}>
+      <div
+        className="home1"
+        style={{
+          color: isDarkMode ? '#fff' : '#704214',
+          padding: '60px',
+          opacity: '1',
+          background: !isDarkMode ? '#fff' : '#704214',
+        
+        
+        
+        
+        }}
+      >
+        <div>
+          <h1 style={{ color: !isDarkMode ? '#704214' : '#fff' }}>Announcements</h1>
+          <button style={{ backgroundColor: isDarkMode ? '#fff' : '#704214', color: isDarkMode ? '#704214' : '#fff', border: isDarkMode ? '1px solid #704214' : '1px solid white' }}>i</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
@@ -679,7 +749,61 @@ marginLeft:'-10px',
 
       </div>
 
+
+
+
+
+      <div 
+       style={{
+        position: 'fixed',
+        bottom: '60px',
+        left: '60px',
+      }}>
+        {/* Button to open the chat modal */}
+        <div>
+      {/* Button to open the chat modal with inline CSS */}
+      <button
+        onClick={openChatModal}
+        style={buttonStyle} // Apply the buttonStyle
+      >
+        
+        
+        <img
+              style={{ width: '40px', padding: '0px' }}
+              src={isDarkMode ? 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/modald.png' : 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/modall.png'}
+              alt="Chat"
+            />
+
+
+      </button>
+
+      {/* Conditionally render the ChatModal */}
+      {isChatModalOpen && (
+        <ChatModal
+          isDarkMode // You can set the mode as needed
+          onClose={closeChatModal}
+        />
+      )}
     </div>
+      </div>
+
+      {/* Conditionally render the ChatModal */}
+      {isChatModalOpen && (
+        <ChatModal
+          isDarkMode={false} // You can set the mode as needed
+          onClose={closeChatModal}
+        />
+      )}
+    </div>
+
+
+
+
+
+
+
+
+
   );
 }
 
@@ -1170,7 +1294,60 @@ backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
 
       </div>
 
+
+
+
+
+
+      <div 
+       style={{
+        position: 'fixed',
+        bottom: '60px',
+        left: '60px',
+      }}>
+        {/* Button to open the chat modal */}
+        <div>
+      {/* Button to open the chat modal with inline CSS */}
+      <button
+        onClick={openChatModal}
+        style={buttonStyle} // Apply the buttonStyle
+      >
+        
+        
+        <img
+              style={{ width: '40px', padding: '0px' }}
+              src={isDarkMode ? 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/modald.png' : 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/modall.png'}
+              alt="Chat"
+            />
+
+
+      </button>
+
+      {/* Conditionally render the ChatModal */}
+      {isChatModalOpen && (
+        <ChatModal
+          isDarkMode // You can set the mode as needed
+          onClose={closeChatModal}
+        />
+      )}
     </div>
+      </div>
+
+      {/* Conditionally render the ChatModal */}
+      {isChatModalOpen && (
+        <ChatModal
+          isDarkMode={false} // You can set the mode as needed
+          onClose={closeChatModal}
+        />
+      )}
+    </div>
+      
+
+
+
+
+
+
   );
 }
 

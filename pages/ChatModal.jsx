@@ -31,10 +31,20 @@ const ChatModal = ({ isDarkMode, onClose }) => {
   }, [messages]);
 
   return (
-    <div className={`chat-modal ${isDarkMode ? 'dark-mode' : ''}`}>
+    <div className={`chat-modal ${isDarkMode ? 'dark-mode' : ''}`} style={{backgroundColor: !isDarkMode? '#fff' : '#704214',border:'3px solid #704214'}}>
       <div className="chat-header">
-        <h2>Chat History</h2>
-        <button onClick={onClose}>Close</button>
+        <h2 style={{paddingLeft:'100px'}}>Chat History</h2>
+        <button onClick={onClose}
+        
+        style={{
+          backgroundColor: '#704214',
+          color: 'white',
+          border: 'none',
+          padding: '5px 10px',
+        }}
+        
+        
+        >Close</button>
       </div>
       <div className="chat-history" ref={chatHistoryRef}>
         {messages.map((message, index) => (
