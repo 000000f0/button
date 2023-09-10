@@ -22,7 +22,7 @@ axios__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (awa
 
 
 const ChatModal = ({ isDarkMode , onClose  })=>{
-    const { /*#__PURE__*/ 0: messages , 1: setMessages  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+    const { 0: messages , 1: setMessages  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
     const { 0: newMessage , 1: setNewMessage  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
     const chatHistoryRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
     const handleSendMessage = async ()=>{
@@ -37,22 +37,18 @@ const ChatModal = ({ isDarkMode , onClose  })=>{
             ]);
             setNewMessage('');
             try {
-                const lambdaEndpoint = 'https://xsvv3p3cbkqtmljxahna3ony540oyoom.lambda-url.eu-west-1.on.aws/'; // Replace with your Lambda endpoint URL
-                const jsonPayload = {
-                    clientmessage: newMessage
-                };
-                const lambdaResponse = await axios__WEBPACK_IMPORTED_MODULE_2__["default"].post(lambdaEndpoint, jsonPayload, {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
+                const serverEndpoint = 'http://54.77.216.40:8000'; // Replace with your server's endpoint URL
+                const response = await axios__WEBPACK_IMPORTED_MODULE_2__["default"].post(serverEndpoint, {
+                    message: newMessage
                 });
-                const responseMessage = {
-                    text: lambdaResponse.data,
-                    sender: 'lambda'
+                const botResponseText = response.data.bot_response;
+                const botResponse = {
+                    text: botResponseText,
+                    sender: 'bot'
                 };
                 setMessages([
                     ...messages,
-                    responseMessage
+                    botResponse
                 ]);
             } catch (error) {
                 console.error('Error:', error);
@@ -95,6 +91,7 @@ const ChatModal = ({ isDarkMode , onClose  })=>{
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
                         type: "text",
+                        placeholder: "Type your message...",
                         value: newMessage,
                         onChange: (e)=>setNewMessage(e.target.value)
                     }),

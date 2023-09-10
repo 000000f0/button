@@ -30,11 +30,13 @@ function ApiCallComponent() {
     const handleSubmit = async ()=>{
         console.log("Submitting " + clientMessage);
         try {
-            const lambdaEndpoint = 'http://54.77.216.40:5000'; // Replace with your Lambda endpoint URL
+            const lambdaEndpoint = 'http://54.77.216.40:8000'; // Replace with your Lambda endpoint URL
+            // Use 'message' as the key in the request payload
             const lambdaResponse = await axios__WEBPACK_IMPORTED_MODULE_2__["default"].post(lambdaEndpoint, {
-                clientmessage: clientMessage
-            });
-            setResponse(lambdaResponse.data);
+                message: clientMessage
+            } // Change 'clientmessage' to 'message'
+            );
+            setResponse(lambdaResponse.data.bot_response); // Assuming the response contains a 'bot_response' field
         } catch (error) {
             console.error('Error:', error);
         }

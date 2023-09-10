@@ -205,9 +205,9 @@ const handleSubmit = () => {
 marginLeft:'-10px',
       }}>
         <Head>
-          <title>Bit_Bet</title>
+          <title>Ark4</title>
           <meta name="description" content="Lottery" />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/logoi.ico" />
         </Head>
   
         <div style={{ backgroundColor: isDarkMode ? '#704214' : 'white' }}>
@@ -218,7 +218,7 @@ marginLeft:'-10px',
               style={{
                 zIndex: '2',
                 backgroundColor: isDarkMode ? '#704214' : 'white',
-                border: isDarkMode ? '1px solid white' : '1px solid #704214',
+                borderBottom: isDarkMode ? '1px solid white' : '1px solid #704214',
               }}
             >
               <img
@@ -236,7 +236,7 @@ marginLeft:'-10px',
                   currentAccount && (
                     <>
                       {currentAccount.substring(0, 6)}...
-                      {currentAccount.substring(currentAccount.length - 4)}
+                      
                     </>
                   )
                 ) : (
@@ -314,11 +314,12 @@ backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
                 
 
                 <table
-                  style={{ backgroundColor: isDarkMode? '#704214' : '#fff', border: isDarkMode? '1px solid white' : '1px solid black', padding:'60px' }}
+                  style={{ backgroundColor: isDarkMode? '#704214' : '#fff', border: isDarkMode? '2px solid white' : '2px solid #704214', padding:'60px',width: '400px'}}
                 >
                   <tbody>
                     <tr>
                       <td>
+                        <center>
                       <img
                 onClick={handlePageChange1}
                 style={{ width: '100px' }}
@@ -328,13 +329,16 @@ backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
                     : 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/logo_dark2.png'
                 }
                 alt="Logo"
-              />
+              /></center>
                         <br />
                         <input
                           style={{
                             backgroundColor: isDarkMode? '#704214' : '#fff',
                             color: isDarkMode? '#fff' : '#704214',
-                            border: isDarkMode? '1px solid white' : '1px solid black',
+                            border: isDarkMode? '1px solid white' : '1px solid #704214',
+                            padding: '10px',
+                            margin: '10px',
+                            width: '300px'
                           }}
                           type='text'
                           placeholder='Name'
@@ -347,7 +351,10 @@ backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
                           style={{
                             backgroundColor: isDarkMode? '#704214' : '#fff',
                             color: isDarkMode? '#fff' : '#704214',
-                            border: isDarkMode? '1px solid white' : '1px solid black',
+                            border: isDarkMode? '1px solid white' : '1px solid #704214',
+                            padding: '10px',
+                            margin: '10px',
+                            width: '300px'
                           }}
                           type='email'
                           placeholder='Email'
@@ -357,11 +364,14 @@ backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
                     <tr>
                       <td>
                         <textarea
-                          style={{
-                            backgroundColor: isDarkMode? '#704214' : '#fff',
-                            color: isDarkMode? '#fff' : '#704214',
-                            border: isDarkMode? '1px solid white' : '1px solid black',
-                          }}
+                         style={{
+                          backgroundColor: isDarkMode? '#704214' : '#fff',
+                          color: isDarkMode? '#fff' : '#704214',
+                          border: isDarkMode? '1px solid white' : '1px solid #704214',
+                          padding: '10px',
+                          margin: '10px',
+                          width: '300px'
+                        }}
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
                           placeholder='Message'
@@ -370,7 +380,11 @@ backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
                     </tr>
                     <tr>
                       <td>
-                        <button onClick={handleSubmit} style={{ backgroundColor: isDarkMode? '#fff' : '#704214', color: isDarkMode? '#704214' : '#fff' }}>
+                        <button onClick={handleSubmit} style={{ backgroundColor: isDarkMode? '#fff' : '#704214', color: isDarkMode? '#704214' : '#fff', padding: '10px',                          border: isDarkMode? '1px solid white' : '1px solid #704214',
+
+                            margin: '10px',
+                            width: '322px' }}>
+
                           Contact Us
                         </button>
                         <br />
@@ -433,9 +447,9 @@ if(currentpagenumber==2){
         width:'101vw',
 marginLeft:'-10px',
       }}><Head>
-        <title>Bit_Bet</title>
+        <title>Ark4</title>
         <meta name="description" content="Lottery" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/logoi.ico" />
       </Head>
 
       <div style={{ backgroundColor: isDarkMode ? '#704214' : 'white' }}>
@@ -446,7 +460,7 @@ marginLeft:'-10px',
             style={{
               zIndex: '2',
               backgroundColor: isDarkMode ? '#704214' : 'white',
-              border: isDarkMode ? '1px solid white' : '1px solid #704214',
+              borderBottom: isDarkMode ? '1px solid white' : '1px solid #704214',
             }}
           >
             <img
@@ -466,7 +480,7 @@ marginLeft:'-10px',
                 currentAccount && (
                   <>
                     {currentAccount.substring(0, 6)}...
-                    {currentAccount.substring(currentAccount.length - 4)}
+                    
                   </>
                 )
 
@@ -712,10 +726,14 @@ if(currentpagenumber==3){
         width:'101vw',
 marginLeft:'-10px',
       }}><Head>
-        <title>Bit_Bet</title>
+        <title>Ark4</title>
         <meta name="description" content="Lottery" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/logoi.ico" />
       </Head>
+
+
+
+
 
       <div style={{ backgroundColor: isDarkMode ? '#704214' : 'white' }}>
         {/* Navbar */}
@@ -725,7 +743,7 @@ marginLeft:'-10px',
             style={{
               zIndex: '2',
               backgroundColor: isDarkMode ? '#704214' : 'white',
-              border: isDarkMode ? '1px solid white' : '1px solid #704214',
+              borderBottom: isDarkMode ? '1px solid white' : '1px solid #704214',
             }}
           >
             <img
@@ -745,7 +763,7 @@ marginLeft:'-10px',
                 currentAccount && (
                   <>
                     {currentAccount.substring(0, 6)}...
-                    {currentAccount.substring(currentAccount.length - 4)}
+                    
                   </>
                 )
 
@@ -904,9 +922,9 @@ if(currentpagenumber==4){
         width:'101vw',
 marginLeft:'-10px',
       }}><Head>
-        <title>Bit_Bet</title>
+        <title>Ark4</title>
         <meta name="description" content="Lottery" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/logoi.ico" />
       </Head>
 
       <div style={{ backgroundColor: isDarkMode ? '#704214' : 'white' }}>
@@ -917,7 +935,7 @@ marginLeft:'-10px',
             style={{
               zIndex: '2',
               backgroundColor: isDarkMode ? '#704214' : 'white',
-              border: isDarkMode ? '1px solid white' : '1px solid #704214',
+              borderBottom: isDarkMode ? '1px solid white' : '1px solid #704214',
             }}
           >
             <img
@@ -937,7 +955,7 @@ marginLeft:'-10px',
                 currentAccount && (
                   <>
                     {currentAccount.substring(0, 6)}...
-                    {currentAccount.substring(currentAccount.length - 4)}
+                    
                   </>
                 )
 
@@ -988,57 +1006,135 @@ marginLeft:'-10px',
 
 
         <main style={{
-        backgroundColor: !isDarkMode ? '#fff' : '#704214',
-        opacity: 1,
-  paddingTop: '60px',
+          backgroundColor: '#ffffff',
+          opacity: 1,
+  paddingTop: '195px',
+  paddingBottom: '150px',
 
 
-  
+
+backgroundImage: !isDarkMode ?
+ 'linear-gradient(#704214 2px, transparent 2px), linear-gradient(90deg, #704214 2px, transparent 2px), linear-gradient(#704214 1px, transparent 1px), linear-gradient(90deg, #704214 1px, #ffffff 1px)':
+ 
+ ' linear-gradient(#ffffff 2px, transparent 2px), linear-gradient(90deg, #ffffff 2px, transparent 2px), linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, #704214 1px)',
+ 
+
+ backgroundSize: '50px 50px, 50px 50px, 10px 10px, 10px 10px',
+backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
 }}>
-    <div>
-    <center>
-    {/* Logo */}
-    <img
-      style={{
-        zIndex: '-1',
-        width: '150px',
-        backgroundColor: isDarkMode ? '#fff' : '#704214',
-      }}
-      src={!isDarkMode ? 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/logo_light2.png' : 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/logo_dark2.png'}
-      alt="Logo"
-    />
-    {/* Add more content here */}
-
-    {/* Connect Wallet or Chat */}
-    {currentAccount ? (
-      <div style={{ backgroundColor: !isDarkMode ? '#fff' : '#704214' }}>
-        <form>
           <div>
-            <button className="connect-button" type="button" onClick={buyCoffee}>
-              Mint Token
-            </button>
+            <center>
+              <div
+                style={{
+
+                }}
+              >
+                
+
+                <table
+                  style={{ backgroundColor: isDarkMode? '#704214' : '#fff', border: isDarkMode? '2px solid white' : '2px solid #704214', padding:'60px',width: '400px'}}
+                >
+                  <tbody>
+                    <tr>
+                      <td>
+                        <center>
+                      <img
+                onClick={handlePageChange1}
+                style={{ width: '100px' }}
+                src={
+                  !isDarkMode
+                    ? 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/logo_light2.png'
+                    : 'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/logo_dark2.png'
+                }
+                alt="Logo"
+              /></center>
+                        <br />
+                        
+                        
+                        
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        
+                        
+
+
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        
+                        
+                      <center>
+                      <img
+                onClick={handlePageChange1}
+                style={{ width: '300px' }}
+                src={
+                   'https://amplify-amplifya785c969872c4-staging-111600-deployment.s3.amazonaws.com/nft.gif'
+                }
+                alt="Logo"
+              /></center>
+
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        
+                      {currentAccount ? (
+    <form>
+      <button
+        className="connect-button"
+        type="button"
+        onClick={buyCoffee}
+        style={{
+          backgroundColor: isDarkMode ? '#fff' : '#704214',
+          color: isDarkMode ? '#704214' : '#fff',
+          padding: '10px',
+          border: isDarkMode ? '1px solid white' : '1px solid #704214',
+          margin: '10px',
+          width: '322px'
+        }}
+      >
+        Mint Token
+      </button>
+    </form>
+  ) : (
+    <button
+      className="connect-button"
+      onClick={connectWallet}
+      style={{
+        backgroundColor: isDarkMode ? '#fff' : '#704214',
+        color: isDarkMode ? '#704214' : '#fff',
+        padding: '10px',
+        border: isDarkMode ? '1px solid white' : '1px solid #704214',
+        margin: '10px',
+        width: '322px'
+      }}
+    >
+      Connect your wallet
+    </button>
+  )}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </center>
           </div>
-        </form>
-      </div>
-    ) : (
-      <div>
-        <button className="connect-button" onClick={connectWallet}>
-          Connect your wallet
-        </button>
-      </div>
-    )}
+        </main>
 
-    {/* Chat */}
-    
-    
-<br />
 
-    {/* Chat Modal */}
+
+
+
+
+
+
     
-    
-    </center>
-  </div>
-</main>
 
 
       {/* Footer */}

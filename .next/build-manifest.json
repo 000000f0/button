@@ -5,9 +5,9 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/B2nvV0kIaMEwFtlXgcl5b/_buildManifest.js",
-    "static/B2nvV0kIaMEwFtlXgcl5b/_ssgManifest.js",
-    "static/B2nvV0kIaMEwFtlXgcl5b/_middlewareManifest.js"
+    "static/W0nrKoGVd7czVQLyCwVSg/_buildManifest.js",
+    "static/W0nrKoGVd7czVQLyCwVSg/_ssgManifest.js",
+    "static/W0nrKoGVd7czVQLyCwVSg/_middlewareManifest.js"
   ],
   "pages": {
     "/": [
@@ -16,27 +16,27 @@
       "static/chunks/main-01df828e572375b9.js",
       "static/chunks/154-635cf101fbf84568.js",
       "static/chunks/609-d780b7c981c3e273.js",
-      "static/chunks/pages/index-ec5f8a1649f90f8e.js"
+      "static/chunks/pages/index-426622ca011d0829.js"
     ],
     "/ApiCallComponent": [
       "static/chunks/webpack-434fefa8f39d8fbc.js",
       "static/chunks/framework-5f4595e5518b5600.js",
       "static/chunks/main-01df828e572375b9.js",
       "static/chunks/154-635cf101fbf84568.js",
-      "static/chunks/pages/ApiCallComponent-02896cd205109fb1.js"
+      "static/chunks/pages/ApiCallComponent-60a3124c1ec4cc2c.js"
     ],
     "/ChatModal": [
       "static/chunks/webpack-434fefa8f39d8fbc.js",
       "static/chunks/framework-5f4595e5518b5600.js",
       "static/chunks/main-01df828e572375b9.js",
       "static/chunks/154-635cf101fbf84568.js",
-      "static/chunks/pages/ChatModal-902c365689f47738.js"
+      "static/chunks/pages/ChatModal-dbc4fc0e46cd02ea.js"
     ],
     "/_app": [
       "static/chunks/webpack-434fefa8f39d8fbc.js",
       "static/chunks/framework-5f4595e5518b5600.js",
       "static/chunks/main-01df828e572375b9.js",
-      "static/css/e19d47132d103f03.css",
+      "static/css/26f31e6223d87ae8.css",
       "static/chunks/pages/_app-3b53137bd73cc84f.js"
     ],
     "/_error": [

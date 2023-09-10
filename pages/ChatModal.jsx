@@ -13,17 +13,11 @@ const ChatModal = ({ isDarkMode, onClose }) => {
       setNewMessage('');
 
       try {
-        const lambdaEndpoint = 'https://xsvv3p3cbkqtmljxahna3ony540oyoom.lambda-url.eu-west-1.on.aws/'; // Replace with your Lambda endpoint URL
-        const jsonPayload = { clientmessage: newMessage };
-        
-        const lambdaResponse = await axios.post(lambdaEndpoint, jsonPayload, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-
-        const responseMessage = { text: lambdaResponse.data, sender: 'lambda' };
-        setMessages([...messages, responseMessage]);
+        const serverEndpoint = 'http://54.77.216.40:8000'; // Replace with your server's endpoint URL
+        const response = await axios.post(serverEndpoint, { message: newMessage });
+        const botResponseText = response.data.bot_response;
+        const botResponse = { text: botResponseText, sender: 'bot' };
+        setMessages([...messages, botResponse]);
       } catch (error) {
         console.error('Error:', error);
       }
@@ -52,6 +46,7 @@ const ChatModal = ({ isDarkMode, onClose }) => {
       <div className="chat-input">
         <input
           type="text"
+          placeholder="Type your message..."
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
         />

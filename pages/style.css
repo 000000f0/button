@@ -127,8 +127,9 @@ input:checked + .slider:before {
   width: 400px;
   padding: 20px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   overflow: hidden;
+  border: '2px solid #704214'
+
 }
 
 .chat-header {
