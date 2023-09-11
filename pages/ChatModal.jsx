@@ -9,15 +9,24 @@ const ChatModal = ({ isDarkMode, onClose }) => {
   const handleSendMessage = async () => {
     if (newMessage.trim() !== '') {
       const userMessage = { text: newMessage, sender: 'user' };
-      setMessages([...messages, userMessage]);
+      setMessages([...messages, userMessage]); // Update the chat history with the user's message
       setNewMessage('');
 
       try {
-        const serverEndpoint = 'http://54.77.216.40:8000'; // Replace with your server's endpoint URL
-        const response = await axios.post(serverEndpoint, { message: newMessage });
-        const botResponseText = response.data.bot_response;
+        const serverEndpoint = 'http://54.77.216.40:8000/process_text'; // Updated endpoint URL
+        const response = await axios.post(
+          serverEndpoint,
+          { text: newMessage }, // Send the message as 'text'
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              // 'Access-Control-Allow-Origin': '*', // You may not need this header here
+            },
+          }
+        );
+        const botResponseText = response.data.answer; // Assuming your server responds with 'answer'
         const botResponse = { text: botResponseText, sender: 'bot' };
-        setMessages([...messages, botResponse]);
+        setMessages([...messages, botResponse]); // Update the chat history with the bot's response
       } catch (error) {
         console.error('Error:', error);
       }
@@ -31,20 +40,20 @@ const ChatModal = ({ isDarkMode, onClose }) => {
   }, [messages]);
 
   return (
-    <div className={`chat-modal ${isDarkMode ? 'dark-mode' : ''}`} style={{backgroundColor: !isDarkMode? '#fff' : '#704214',border:'3px solid #704214'}}>
+    <div className={`chat-modal ${isDarkMode ? 'dark-mode' : ''}`} style={{ backgroundColor: !isDarkMode ? '#fff' : '#704214', border: '3px solid #704214' }}>
       <div className="chat-header">
-        <h2 style={{paddingLeft:'100px'}}>Chat History</h2>
-        <button onClick={onClose}
-        
-        style={{
-          backgroundColor: '#704214',
-          color: 'white',
-          border: 'none',
-          padding: '5px 10px',
-        }}
-        
-        
-        >Close</button>
+        <h2 style={{ paddingLeft: '100px' }}>Chat History</h2>
+        <button
+          onClick={onClose}
+          style={{
+            backgroundColor: '#704214',
+            color: 'white',
+            border: 'none',
+            padding: '5px 10px',
+          }}
+        >
+          Close
+        </button>
       </div>
       <div className="chat-history" ref={chatHistoryRef}>
         {messages.map((message, index) => (
