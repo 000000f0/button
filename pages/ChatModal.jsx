@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
 const ChatModal = ({ isDarkMode, onClose }) => {
@@ -9,14 +9,15 @@ const ChatModal = ({ isDarkMode, onClose }) => {
   const handleSendMessage = async () => {
     if (newMessage.trim() !== '') {
       const userMessage = { text: newMessage, sender: 'user' };
-      setMessages([...messages, userMessage]); // Update the chat history with the user's message
+      // Update the chat history by appending the user's message
+      setMessages((prevMessages) => [...prevMessages, userMessage]);
       setNewMessage('');
 
       try {
-        const serverEndpoint = 'https://deva.ark4.xyz'; // Updated endpoint URL
+        const serverEndpoint = 'https://deva.ark4.xyz'; // Update with your server URL
         const response = await axios.post(
-          `${serverEndpoint}/process_text`, // Send the message to the server
-          JSON.stringify({ text: newMessage }), // Convert the object to a JSON string
+          serverEndpoint,
+          { user_input: newMessage },
           {
             headers: {
               'Content-Type': 'application/json',
@@ -25,18 +26,13 @@ const ChatModal = ({ isDarkMode, onClose }) => {
         );
         const botResponseText = response.data.response;
         const botResponse = { text: botResponseText, sender: 'bot' };
-        setMessages([...messages, botResponse]); // Update the chat history with the bot's response
+        // Append the bot's response to the chat history
+        setMessages((prevMessages) => [...prevMessages, botResponse]);
       } catch (error) {
         console.error('Error:', error);
       }
     }
   };
-
-  useEffect(() => {
-    if (chatHistoryRef.current) {
-      chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
-    }
-  }, [messages]);
 
   return (
     <div className={`chat-modal ${isDarkMode ? 'dark-mode' : ''}`}>
